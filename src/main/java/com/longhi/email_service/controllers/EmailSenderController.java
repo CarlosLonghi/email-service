@@ -1,6 +1,7 @@
 package com.longhi.email_service.controllers;
 
 import com.longhi.email_service.application.EmailSenderService;
+import com.longhi.email_service.core.EmailRequest;
 import com.longhi.email_service.core.exceptions.EmailServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
