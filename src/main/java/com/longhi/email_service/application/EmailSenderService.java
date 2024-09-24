@@ -1,7 +1,7 @@
 package com.longhi.email_service.application;
 
 import com.longhi.email_service.adapters.EmailSenderGateway;
-import com.longhi.email_service.core.EmailSenderUseCase;
+import com.longhi.email_service.core.cases.EmailSenderUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class EmailSenderService implements EmailSenderUseCase {
     }
 
     @Override
-    public void sendEmail(String to, String subject, String body) {
-        this.emailSenderGateway.sendEmail(to, subject, body);
+    public void sendEmail(String toEmail, String subject, String body) {
+        this.emailSenderGateway.sendEmail(toEmail, subject, body);
     }
 }

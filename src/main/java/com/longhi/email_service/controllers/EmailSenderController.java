@@ -17,15 +17,15 @@ public class EmailSenderController {
     private final EmailSenderService emailSenderService;
 
     @Autowired
-    public EmailSenderController(EmailSenderService emailService) {
-        this.emailSenderService = emailService;
+    public EmailSenderController(EmailSenderService emailSenderService) {
+        this.emailSenderService = emailSenderService;
     }
 
-    @PostMapping()
-    public ResponseEntity<String> sendEmail(@RequestBody EmailRequest request) {
+    @PostMapping("/send")
+    public ResponseEntity<String> sendEmail(@RequestBody EmailRequest emailRequest) {
         try {
-            this.emailSenderService.sendEmail(request.to(), request.subject(), request.body());
-            return ResponseEntity.ok("Email send successfully");
+            this.emailSenderService.sendEmail(emailRequest.to(), emailRequest.subject(), emailRequest.body());
+            return ResponseEntity.ok("Email sent successfully");
         } catch (EmailServiceException exception) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error while sending email");
         }
